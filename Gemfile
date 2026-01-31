@@ -4,14 +4,10 @@ source "https://rubygems.org"
 ruby "~> 4.0"
 
 gem "tomlrb", "~> 2.0", ">= 2.0.3"
-gem "lefthook", "~> 2.0"
 gem "syntax_tree", "~> 6.3"
-
 
 gem "rake", "~> 13.3"
 
 gem "racc", "~> 1.8"
 
 gem "rubyzip", "~> 3.2"
-
-gem "octokit", "~> 10.0"
