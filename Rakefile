@@ -17,8 +17,8 @@ task :release => [:build] do
   release_md = File.read("./release.md")
   File.write("./release/README.md", release_md.gsub("{{version}}", version))
   Zip::File.open("./release/vintage-#{version}.au2pkg.zip", create: true) do |zipfile|
-    zipfile.mkdir("Script")
-    zipfile.add("Script/vintage.auf2", "./target/release/vintage_auf2.dll")
+    zipfile.mkdir("Plugin")
+    zipfile.add("Plugin/vintage.auf2", "./target/release/vintage_auf2.dll")
   end
 
   sh "cargo about generate ./about.hbs -o ./release/THIRD_PARTY_NOTICES.md"
