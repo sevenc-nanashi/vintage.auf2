@@ -1,3 +1,7 @@
+[[tools."cargo:cargo-about"]]
+version = "0.8.4"
+backend = "cargo:cargo-about"
+
 [[tools."cargo:cargo-edit"]]
 version = "0.13.8"
 backend = "cargo:cargo-edit"

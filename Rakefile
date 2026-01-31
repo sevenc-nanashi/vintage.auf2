@@ -20,4 +20,6 @@ task :release => [:build] do
     zipfile.mkdir("Script")
     zipfile.add("Script/vintage.auf2", "./target/release/vintage_auf2.dll")
   end
+
+  sh "cargo about generate ./about.hbs -o ./release/THIRD_PARTY_NOTICES.md"
 end
