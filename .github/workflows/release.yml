@@ -3,10 +3,9 @@ name: Build
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: "Name of the release"
+      version:
+        description: "Version to release"
         required: true
-        default: "latest"
 
 jobs:
   build:
@@ -29,20 +28,20 @@ jobs:
       - name: Cache rust
         uses: Swatinem/rust-cache@v2
 
+      - name: Set up cargo-edit
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-binstall
+
       - name: Set up mise
         uses: jdx/mise-action@v3
         with:
           install: true
           experimental: true
 
-      - name: Set up cargo-edit
-        uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-edit
-
       - name: Update Cargo.toml
         run: |
-          cargo set-version ${{ github.event.inputs.name }}
+          cargo set-version ${{ github.event.inputs.version }}
           cargo update --workspace
 
       - name: Prepare release
@@ -56,8 +55,8 @@ jobs:
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
           git add Cargo.toml Cargo.lock
-          git commit -m "release: v${{ github.event.inputs.name }}"
-          git tag ${{ github.event.inputs.name }}
+          git commit -m "release: v${{ github.event.inputs.version }}"
+          git tag ${{ github.event.inputs.version }}
 
       - name: Push Tag
         run: |
@@ -66,7 +65,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.inputs.name }}
+          tag_name: ${{ github.event.inputs.version }}
           body_path: ./release/README.md
           files: |
-            ./release/ntsc-rs-*.au2pkg.zip
+            ./release/vintage-*.au2pkg.zip

@@ -2,7 +2,7 @@
 require "bundler/setup"
 
 desc "ビルドします"
-task :build => [:build_script] do
+task :build do
   sh "cargo build --release"
 end
 
