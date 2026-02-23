@@ -1,4 +1,4 @@
 [tools]
-"cargo:cargo-about" = "latest"
+"github:EmbarkStudios/cargo-about" = { version = "latest" }
 "cargo:cargo-edit" = "latest"
-ruby = "4"
+"github:sevenc-nanashi/aviutl2-cli" = { version = "0.6.1", bin = "au2.exe" }

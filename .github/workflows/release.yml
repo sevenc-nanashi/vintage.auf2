@@ -47,8 +47,7 @@ jobs:
       - name: Prepare release
         shell: bash
         run: |
-          bundle install
-          bundle exec rake release
+          au2 release --set-version ${{ github.event.inputs.version }}
 
       - name: Commit version change
         run: |
@@ -69,4 +68,3 @@ jobs:
           body_path: ./release/README.md
           files: |
             ./release/vintage-*.au2pkg.zip
-            ./release/THIRD_PARTY_NOTICES.md
