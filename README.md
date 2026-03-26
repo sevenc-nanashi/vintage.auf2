@@ -1,5 +1,8 @@
 # vintage.auf2
 
+[![AviUtl2 Catalog](https://aviutl2-catalog-badge.sevenc7c.workers.dev/badge/v/sevenc-nanashi.vintage-auf2)](https://aviutl2-catalog-badge.sevenc7c.workers.dev/package/sevenc-nanashi.vintage-auf2)
+[![sm45904404](https://niconi-commons-badge.sevenc7c.workers.dev/badge/sm45904404)](https://commons.nicovideo.jp/works/sm45904404)
+
 音声を昔のビデオっぽくするAviUtl2のフィルタープラグイン。
 
 ## インストール
